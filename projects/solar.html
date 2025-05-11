@@ -20,11 +20,9 @@
       border: 4px solid #38bdf8;
       border-radius: 12px;
       position: relative;
-      /* ← pour le z-index ci-dessous */
       z-index: 1;
     }
 
-    /* ===== Canvas de fond sur toute la page ===== */
     #bg {
       position: fixed;
       inset: 0;
@@ -74,10 +72,9 @@
     (() => {
       const c = document.getElementById('space');
       const ctx = c.getContext('2d');
-      /* … le reste du code inchangé … */
     })();
   </script>
-  <script src="../bg.js"></script> <!-- adapte le chemin si besoin -->
+  <script src="../bg.js"></script>
 </body>
 
 </html>

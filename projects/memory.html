@@ -11,11 +11,9 @@
     body {
       height: 100%;
       margin: 0;
-      /* supprime l’offset blanc par défaut */
       display: flex;
       flex-direction: column;
       justify-content: center;
-      /* centre verticalement tout le contenu */
       align-items: center;
     }
 
@@ -46,7 +44,6 @@
       background: #16a34a
     }
 
-    /* ===== Canvas de fond sur toute la page ===== */
     h2,
     .grid {
       position: relative;
@@ -56,8 +53,6 @@
     h2 {
       margin-bottom: 2rem;
     }
-
-    /* un peu d’air au-dessus de la grille */
   </style>
 </head>
 
@@ -102,7 +97,7 @@
     }
     function reset() { first = null; busy = false }
   </script>
-  <script src="../bg.js"></script> <!-- adapte le chemin si besoin -->
+  <script src="../bg.js"></script>
 
 </body>
 

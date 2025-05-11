@@ -1,4 +1,4 @@
-/* ========= 1. BURGER / NAV ========= */
+// BURGER
 const burger = document.getElementById('burger');
 const nav = document.querySelector('.navbar');
 burger.addEventListener('click', () => {
@@ -6,10 +6,13 @@ burger.addEventListener('click', () => {
   burger.classList.toggle('open');
 });
 
-/* ========= 2. YEAR AUTO ========= */
+/////////
+
 document.getElementById('year').textContent = new Date().getFullYear();
 
-/* ========= 3. CARD TILT ========= */
+
+
+/////////
 document.querySelectorAll('[data-tilt]').forEach(card => {
   card.addEventListener('mousemove', e => {
     const rect = card.getBoundingClientRect();
@@ -24,13 +27,13 @@ document.querySelectorAll('[data-tilt]').forEach(card => {
   card.addEventListener('mouseleave', () => card.classList.remove('tilt'));
 });
 
-/* ========= 4. SCROLL-REVEAL ========= */
+// SCROLL 
 const observer = new IntersectionObserver(entries => {
   entries.forEach(el => el.isIntersecting && el.target.classList.add('visible'));
 }, { threshold: .15 });
 document.querySelectorAll('[data-reveal]').forEach(el => observer.observe(el));
 document.querySelectorAll('.card').forEach(el => {
-  el.classList.add('reveal');   // état initial
-  observer.observe(el);         // on observe chaque carte
+  el.classList.add('reveal');  
+  observer.observe(el);         
 });
 

@@ -1,7 +1,7 @@
-/* bg.js – particules plein écran, sans polluer le global */
+/* particules bg séparées */
 (() => {
   const cvs = document.getElementById('bg');
-  if (!cvs) return;                 // page sans #bg → on sort
+  if (!cvs) return;
 
   const ctx = cvs.getContext('2d');
   let W, H, parts = [];
@@ -17,7 +17,7 @@
       this.y = Math.random() * H;
       this.vx = (Math.random() - .5) * .7;
       this.vy = (Math.random() - .5) * .7;
-      this.s  = Math.random() * 2 + .5;
+      this.s = Math.random() * 2 + .5;
     }
     draw() {
       this.x += this.vx; this.y += this.vy;
@@ -28,7 +28,7 @@
 
   parts = Array.from({ length: 250 }, () => new P());
 
-  (function loop () {
+  (function loop() {
     ctx.fillStyle = 'rgba(15,23,42,.35)';
     ctx.fillRect(0, 0, W, H);
     ctx.fillStyle = '#0ea5e9';

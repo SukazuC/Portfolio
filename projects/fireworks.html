@@ -46,11 +46,7 @@
 <body>
   <canvas id="bg"></canvas>
   <h2>Click / Tap ✨</h2>
-
-  <!-- 1️⃣  Star‑field particles (runs its own requestAnimationFrame) -->
   <script src="../bg.js"></script>
-
-  <!-- 2️⃣  Fireworks share the same canvas and reset state every frame so starfield stays alive -->
   <script>
     const cvs = document.getElementById('bg');
     const ctx = cvs.getContext('2d', { alpha: true });
@@ -59,7 +55,7 @@
     const resize = () => { W = cvs.width = innerWidth; H = cvs.height = innerHeight; };
     addEventListener('resize', resize); resize();
 
-    /* ------------------ Firework particle ------------------ */
+    /* Particules */
     class Particle {
       constructor(x, y, col) {
         this.x = x; this.y = y;
@@ -92,21 +88,16 @@
     }
     addEventListener('pointerdown', e => boom(e.clientX, e.clientY));
 
-    /* ------------------ Main loop ------------------ */
+    /* Boucle principale */
     function loop() {
-      // 🔄  Always restore the canvas state at the **start** of the frame so bg.js keeps drawing
       ctx.globalCompositeOperation = 'source-over';
-      ctx.globalAlpha = 1;   // ⭐️ IMPORTANT: make sure starfield draws at full opacity
-
-      // Fireworks on top, in additive mode
+      ctx.globalAlpha = 1;
       ctx.globalCompositeOperation = 'lighter';
       for (let i = fireworks.length; i--;) {
         const p = fireworks[i];
         p.update(); p.draw();
         if (p.alpha <= 0) fireworks.splice(i, 1);
       }
-
-      // Reset for anyone else who draws later (not strictly needed but good hygiene)
       ctx.globalCompositeOperation = 'source-over';
       ctx.globalAlpha = 1;
       requestAnimationFrame(loop);
