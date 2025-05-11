@@ -36,3 +36,6 @@
     requestAnimationFrame(loop);
   })();
 })();
+
+
+document.getElementById('year').textContent = new Date().getFullYear();

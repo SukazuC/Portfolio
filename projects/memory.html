@@ -7,9 +7,9 @@
   <title>Memory Match</title>
   <link rel="stylesheet" href="../style.css">
   <style>
-    html,
-    body {
-      height: 100%;
+
+    main {
+      min-height: 97vh;
       margin: 0;
       display: flex;
       flex-direction: column;
@@ -57,9 +57,27 @@
 </head>
 
 <body>
+  <body>
   <canvas id="bg"></canvas>
-  <h2>🧠 Memory Match 🧠</h2>
-  <div class="grid" id="grid"></div>
+
+  <header class="header">
+    <div class="logo"><img src="/logo.svg" alt=""></div>
+    <nav class="navbar">
+      <a href="/#">Accueil</a>
+      <a href="fireworks.html">Fireworks</a>
+      <a href="solar.html">Système solaire</a>
+    </nav>
+    <button id="burger" aria-label="Menu mobile">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+  <main>
+    <canvas id="bg"></canvas>
+    <h2>🧠 Memory Match 🧠</h2>
+    <div class="grid" id="grid"></div>
+  </main>
+
+  <footer class="footer">© <span id="year"></span> Cédric PESIN</footer>
 
   <script>
     const emojis = ['🚀', '🪐', '👾', '🌟', '⚡', '🎮', '🛰️', '☄️'];

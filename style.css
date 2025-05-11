@@ -23,11 +23,12 @@ body {
   color: var(--clr-text);
   line-height: 1.6;
   overflow-x: hidden;
+  min-height: 100vh;
 }
 
 /* GLOBAL */
 .section {
-  padding: 7rem 1rem 4rem;
+  padding: 7rem 1rem;
   max-width: 1100px;
   margin: auto;
   text-align: center
@@ -67,7 +68,7 @@ h2 {
   z-index: 1000;
   background: rgba(11, 17, 32, .6);
   backdrop-filter: blur(12px);
-  font-size: 1.5rem;
+  font-size: 1.25rem;
 }
 
 .logo {
@@ -306,9 +307,14 @@ h2 {
 /*FOOTER */
 .footer {
   text-align: center;
-  padding: 2rem 1rem;
-  font-size: .9rem;
-  background: var(--clr-bg-light)
+  padding: 0.2rem 1rem;
+  font-size: 0.9rem;
+  background: var(--clr-bg-light);
+  color: white;
+  position: sticky;
+  bottom: 0;
+  z-index: 50000;
+  display: block;
 }
 
 /* REVEAL ON SCROLL */

@@ -6,11 +6,6 @@ burger.addEventListener('click', () => {
   burger.classList.toggle('open');
 });
 
-/////////
-
-document.getElementById('year').textContent = new Date().getFullYear();
-
-
 
 /////////
 document.querySelectorAll('[data-tilt]').forEach(card => {

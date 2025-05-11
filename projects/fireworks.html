@@ -15,17 +15,16 @@
       box-sizing: border-box
     }
 
-    body {
+    main {
       background: var(--bg-color);
       overflow: hidden;
       font-family: Arial, Helvetica, sans-serif;
     }
 
     canvas {
-      position: fixed;
       inset: 0;
       width: 100vw;
-      height: 100vh;
+      height: 97vh;
       display: block;
       cursor: crosshair
     }
@@ -39,13 +38,51 @@
       pointer-events: none;
       text-shadow: 0 0 4px #000;
       font-size: 3rem;
+      width: 100%;
+      text-align: center;
+    }
+
+    img {
+      position: fixed;
+      top: 0;
+    }
+
+    footer {
+      text-align: center;
+      background-color: #0b1120;
+      padding-top: 0.5rem;
+    }
+
+    .navbar {
+      position: fixed;
+      top: 2rem;
+      right: 3rem;
+    }
+
+    .navbar a {
+      color: var(--clr-text);
+      text-decoration: none;
+      position: relative;
+      font-size: 1.3rem;
+      padding: 1rem;
     }
   </style>
 </head>
 
 <body>
-  <canvas id="bg"></canvas>
-  <h2>Click / Tap ✨</h2>
+
+  <main>
+    <canvas id="bg"></canvas>
+    <h2>Click / Tap ✨</h2>
+    <nav class="navbar">
+      <a href="/#">Accueil</a>
+      <a href="solar.html">Système solaire</a>
+      <a href="memory.html">Memory</a>
+    </nav>
+    <img src="/logo.svg" alt="">
+  </main>
+  <footer class="footer">© <span id="year"></span> Cédric PESIN</footer>
+
   <script src="../bg.js"></script>
   <script>
     const cvs = document.getElementById('bg');
@@ -69,7 +106,7 @@
       update() {
         this.x += this.vx;
         this.y += this.vy;
-        this.vy += 0.02;          // gravity
+        this.vy += 0.02;
         this.alpha -= 0.012;
       }
       draw() {
