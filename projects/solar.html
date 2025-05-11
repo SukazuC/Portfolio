@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Système solaire</title>
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    body {
+      margin: 0;
+      background: #0b1120;
+      display: grid;
+      place-items: center;
+      height: 100vh
+    }
+
+    #space {
+      background: #1e293b;
+      border: 4px solid #38bdf8;
+      border-radius: 12px;
+      position: relative;
+      /* ← pour le z-index ci-dessous */
+      z-index: 1;
+    }
+
+    /* ===== Canvas de fond sur toute la page ===== */
+    #bg {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+    }
+  </style>
+</head>
+
+<body>
+  <canvas id="bg"></canvas>
+  <canvas id="space" width="600" height="600"></canvas>
+  <script>
+    const c = document.getElementById('space'), ctx = c.getContext('2d');
+    const center = { x: c.width / 2, y: c.height / 2 };
+    const planets = [
+      { r: 6, orb: 40, speed: .02, col: '#fbbf24' },
+      { r: 8, orb: 80, speed: .015, col: '#60a5fa' },
+      { r: 10, orb: 120, speed: .009, col: '#4ade80' },
+      { r: 7, orb: 160, speed: .007, col: '#c084fc' }
+    ];
+    let t = 0;
+    function draw() {
+      ctx.clearRect(0, 0, c.width, c.height);
+      /* Soleil */
+      ctx.fillStyle = '#facc15'; ctx.beginPath();
+      ctx.arc(center.x, center.y, 20, 0, Math.PI * 2); ctx.fill();
+      /* Planètes */
+      planets.forEach(p => {
+        const ang = t * p.speed;
+        const x = center.x + Math.cos(ang) * p.orb;
+        const y = center.y + Math.sin(ang) * p.orb;
+        ctx.strokeStyle = '#334155'; ctx.setLineDash([4, 4]);
+        ctx.beginPath(); ctx.arc(center.x, center.y, p.orb, 0, Math.PI * 2); ctx.stroke();
+        ctx.setLineDash([]);
+        ctx.fillStyle = p.col; ctx.beginPath();
+        ctx.arc(x, y, p.r, 0, Math.PI * 2); ctx.fill();
+      });
+      t += 1;
+      requestAnimationFrame(draw);
+    }
+    draw();
+  </script>
+  <script>
+    (() => {
+      const c = document.getElementById('space');
+      const ctx = c.getContext('2d');
+      /* … le reste du code inchangé … */
+    })();
+  </script>
+  <script src="../bg.js"></script> <!-- adapte le chemin si besoin -->
+</body>
+
+</html>

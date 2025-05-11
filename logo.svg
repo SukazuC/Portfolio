@@ -1,0 +1,39 @@
+<svg width="300" height="100" viewBox="0 0 300 100" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="neonGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8e2de2"></stop>
+      <stop offset="100%" stop-color="#4a00e0"></stop>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3.5" result="coloredBlur"></feGaussianBlur>
+      <feMerge>
+        <feMergeNode in="coloredBlur"></feMergeNode>
+        <feMergeNode in="SourceGraphic"></feMergeNode>
+      </feMerge>
+    </filter>
+    <style>
+      @keyframes pulse {
+        0%, 100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+        50% {
+          transform: scale(1.05);
+          opacity: 0.8;
+        }
+      }
+      .glow {
+        filter: url(#glow);
+        animation: pulse 3s ease-in-out infinite;
+        transform-origin: center;
+      }
+      text {
+        font-family: 'Orbitron', sans-serif;
+        font-size: 36px;
+      }
+    </style>
+  </defs>
+
+  <circle cx="40" cy="50" r="20" fill="url(#neonGradient)" class="glow"></circle>
+  <text x="80" y="60" fill="url(#neonGradient)" class="glow">Sukazu</text>
+</svg>

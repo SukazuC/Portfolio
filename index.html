@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- ========= Background dynamique (canvas plein écran) ========= -->
+  <canvas id="bg"></canvas>
+
+  <!-- ========= Navigation ========= -->
+  <header class="header">
+    <div class="logo"><img src="logo.svg" alt=""></div>
+    <nav class="navbar">
+      <a href="#home">Accueil</a>
+      <a href="#projects">Projets</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button id="burger" aria-label="Menu mobile">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <!-- ========= HERO ========= -->
+  <section id="home" class="section hero">
+    <h1 class="gradient-text">Salut ! Moi c’est <span class="accent">Sukazu</span></h1>
+    <p class="subtitle">Développeur frontend junior qui aime les expériences interactives.<br>
+      Faites défiler pour découvrir !</p>
+    <a href="#projects" class="btn">Voir mes créations ↓</a>
+  </section>
+
+  <!-- ========= PROJETS ========= -->
+  <section id="projects" class="section">
+    <h2 data-reveal>Mes Projets</h2>
+
+    <div class="card-grid">
+      <!-- 1. Memory Match -->
+      <a href="projects/memory.html" target="_blank" class="card" data-tilt data-reveal>
+        <div class="preview memory"></div>
+        <div class="card-body">
+          <h3>Memory Match</h3>
+          <p>Jeu de mémoire emojis 🎯</p>
+        </div>
+      </a>
+
+      <!-- 2. Fireworks -->
+      <a href="projects/fireworks.html" target="_blank" class="card" data-tilt data-reveal>
+        <div class="preview fireworks"></div>
+        <div class="card-body">
+          <h3>Fireworks Canvas</h3>
+          <p>Feux d’artifice interactifs ✨</p>
+        </div>
+      </a>
+
+      <!-- 3. Solar System -->
+      <a href="projects/solar.html" target="_blank" class="card" data-tilt data-reveal>
+        <div class="preview solar"></div>
+        <div class="card-body">
+          <h3>Mini Système solaire</h3>
+          <p>Orbites planétaires ☀️</p>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ========= CONTACT ========= -->
+  <section id="contact" class="section contact">
+    <h2 data-reveal>Contact</h2>
+    <form class="contact-form" data-reveal>
+      <label>Nom <input type="text" placeholder="Votre nom" required></label>
+      <label>Email <input type="email" placeholder="email@example.com" required></label>
+      <label>Message <textarea rows="10" placeholder="Votre message"></textarea></label>
+      <button type="button" class="btn">Envoyer</button>
+    </form>
+  </section>
+
+  <footer class="footer">© <span id="year"></span> [Votre Nom]</footer>
+
+  <script src="main.js"></script>
+  <script src="bg.js"></script>
+
+</body>
+
+</html>
