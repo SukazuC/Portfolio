@@ -426,7 +426,7 @@ h2 {
   background-size: 200%;                 
   filter: blur(10px) brightness(1.15);   
   opacity: 0;
-  transition: opacity .6s ease, background-position 8s linear;
+  transition: opacity 0.6s ease, background-position 8s linear;
   z-index: -1;
   pointer-events: none;
 }
@@ -444,6 +444,12 @@ h2 {
     background-position: 100% 0;
   }
 
+}
+@media (hover: none) {
+  .card.flip::before {
+    opacity: .45;
+    background-position: 100% 0;
+  }
 }
 .card:active {
   transform: translateY(-10px) scale(1.05);
