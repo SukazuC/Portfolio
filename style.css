@@ -445,11 +445,9 @@ h2 {
   }
 
 }
-@media (hover: none) {
-  .card.flip::before {
-    opacity: .45;
-    background-position: 100% 0;
-  }
+.card.flip::before {
+  opacity: .45;
+  background-position: 100% 0;
 }
 .card:active {
   transform: translateY(-10px) scale(1.05);
